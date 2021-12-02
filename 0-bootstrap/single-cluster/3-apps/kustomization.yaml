@@ -4,8 +4,8 @@ resources:
 #- argocd/ace/stage.yaml
 #- argocd/ace/prod.yaml
 
-#- argocd/mq/cicd.yaml
-#- argocd/mq/dev.yaml
+- argocd/mq/cicd.yaml
+- argocd/mq/dev.yaml
 #- argocd/mq/stage.yaml
 #- argocd/mq/prod.yaml
 
@@ -34,7 +34,7 @@ patches:
   patch: |-
     - op: add
       path: /spec/source/repoURL
-      value: ${GIT_BASEURL}/${GIT_ORG}/${GIT_GITOPS_APPLICATIONS}
+      value: https://github.com/prod-ref-guide-giqbal/multi-tenancy-gitops-apps.git
     - op: add
       path: /spec/source/targetRevision
-      value: ${GIT_GITOPS_APPLICATIONS_BRANCH}
+      value: master
